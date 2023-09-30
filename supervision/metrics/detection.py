@@ -614,10 +614,12 @@ class MeanAveragePrecision:
         )
 
     @classmethod
-    def from_tensor_obb(cls,
-                        predictions: List[np.ndarray],
-                        targets: List[np.ndarray],
-                        iou_thrs: List[float]) -> MeanAveragePrecision:
+    def from_tensor_obb(
+        cls,
+        predictions: List[np.ndarray],
+        targets: List[np.ndarray],
+        iou_thrs: List[float],
+    ) -> MeanAveragePrecision:
         """
         Calculate Mean Average Precision based on predicted and ground-truth with iou thresholds.
         """

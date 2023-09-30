@@ -1,8 +1,9 @@
 from typing import List
+
+import numpy as np
 import rtree.index
 from shapely.affinity import rotate, translate
 from shapely.geometry import Polygon
-import numpy as np
 
 
 def rect_polygon(rotate_bbox: List[float]) -> Polygon:
@@ -32,8 +33,7 @@ def compute_rotated_iou(rbbox1: np.ndarray, rbbox2: np.ndarray) -> np.ndarray:
         measure for rbbox1[i] and rbbox2[j].
     """
 
-    m = len(rbbox1)
-    n = len(rbbox2)
+    m, n = len(rbbox1), len(rbbox2)
     if m > n:
         # More memory-efficient to compute it the other way round and transpose.
         return compute_rotated_iou(rbbox2, rbbox1).T
